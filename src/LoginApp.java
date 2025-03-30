@@ -19,31 +19,29 @@ public class LoginApp {
         loginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         loginFrame.setSize(350, 250);
         loginFrame.setLayout(new BorderLayout());
-        loginFrame.getContentPane().setBackground(new Color(44, 62, 80));  // Azul oscuro más suave
+        loginFrame.getContentPane().setBackground(new Color(44, 62, 80)); 
 
-        // Panel superior con campos de usuario y contraseña
-        JPanel panel = new JPanel(new GridLayout(3, 2, 10, 10)); // Espaciado aumentado
-        panel.setBackground(new Color(44, 62, 80));  // Azul oscuro más suave
+        JPanel panel = new JPanel(new GridLayout(3, 2, 10, 10));
+        panel.setBackground(new Color(44, 62, 80));
 
         JLabel usuarioLabel = new JLabel("Usuario:");
         usuarioLabel.setForeground(Color.WHITE);
-        usuarioLabel.setFont(new Font("Roboto", Font.BOLD, 14));  // Cambiar la fuente
+        usuarioLabel.setFont(new Font("Roboto", Font.BOLD, 14));
         panel.add(usuarioLabel);
         usuarioField = new JTextField(15);
         usuarioField.setBackground(Color.WHITE);
-        usuarioField.setBorder(BorderFactory.createLineBorder(new Color(52, 152, 219), 2));  // Borde más moderno
+        usuarioField.setBorder(BorderFactory.createLineBorder(new Color(52, 152, 219), 2));
         panel.add(usuarioField);
 
         JLabel passwordLabel = new JLabel("Contraseña:");
         passwordLabel.setForeground(Color.WHITE);
-        passwordLabel.setFont(new Font("Roboto", Font.BOLD, 14));  // Cambiar la fuente
+        passwordLabel.setFont(new Font("Roboto", Font.BOLD, 14));
         panel.add(passwordLabel);
         passwordField = new JPasswordField(15);
         passwordField.setBackground(Color.WHITE);
-        passwordField.setBorder(BorderFactory.createLineBorder(new Color(52, 152, 219), 2));  // Borde más moderno
+        passwordField.setBorder(BorderFactory.createLineBorder(new Color(52, 152, 219), 2));
         panel.add(passwordField);
 
-        // Botones de login y registro con nuevas fuentes y colores
         JButton loginButton = crearBoton("Iniciar Sesión");
         loginButton.addActionListener(e -> iniciarSesion());
 
@@ -66,7 +64,6 @@ public class LoginApp {
         registroFrame.setLayout(new GridLayout(8, 2, 10, 10));
         registroFrame.getContentPane().setBackground(new Color(44, 62, 80));  // Azul oscuro más suave
 
-        // Campos de registro
         JLabel usuarioLabel = new JLabel("Usuario:");
         usuarioLabel.setForeground(Color.WHITE);
         registroFrame.add(usuarioLabel);
@@ -185,7 +182,6 @@ public class LoginApp {
         userList.setForeground(Color.WHITE);
         JScrollPane scrollPane = new JScrollPane(userList);
 
-        // Botones de acciones
         JButton logoutButton = crearBoton("Cerrar Sesión");
         logoutButton.addActionListener(e -> {
             userFrame.dispose();
@@ -230,7 +226,6 @@ public class LoginApp {
         editFrame.setLayout(new GridLayout(8, 2, 10, 10));
         editFrame.getContentPane().setBackground(new Color(44, 62, 80));  // Azul oscuro más suave
 
-        // Crear los campos de entrada
         JTextField usuarioField = new JTextField(usuario.username);
         usuarioField.setBackground(Color.WHITE);
         usuarioField.setBorder(BorderFactory.createLineBorder(new Color(52, 152, 219), 2));
@@ -255,7 +250,6 @@ public class LoginApp {
         passwordField.setBackground(Color.WHITE);
         passwordField.setBorder(BorderFactory.createLineBorder(new Color(52, 152, 219), 2));
 
-        // Botón de guardar cambios
         JButton saveButton = crearBoton("Guardar Cambios");
         saveButton.addActionListener(e -> {
             usuario.username = usuarioField.getText();
@@ -265,52 +259,50 @@ public class LoginApp {
             usuario.email = emailField.getText();
             usuario.password = new String(passwordField.getPassword());
             editFrame.dispose();
-            mostrarUsuarios();  // Actualizar la lista de usuarios
+            mostrarUsuarios();
         });
 
-        // Añadir los labels y campos a la ventana de edición, y asegurarnos de que los labels sean blancos
         JLabel usuarioLabel = new JLabel("Usuario:");
-        usuarioLabel.setForeground(Color.WHITE);  // Cambiar el color del texto a blanco
+        usuarioLabel.setForeground(Color.WHITE);
         editFrame.add(usuarioLabel);
         editFrame.add(usuarioField);
 
         JLabel nombreLabel = new JLabel("Nombre:");
-        nombreLabel.setForeground(Color.WHITE);  // Cambiar el color del texto a blanco
+        nombreLabel.setForeground(Color.WHITE);
         editFrame.add(nombreLabel);
         editFrame.add(nombreField);
 
         JLabel apellidoLabel = new JLabel("Apellido:");
-        apellidoLabel.setForeground(Color.WHITE);  // Cambiar el color del texto a blanco
+        apellidoLabel.setForeground(Color.WHITE);
         editFrame.add(apellidoLabel);
         editFrame.add(apellidoField);
 
         JLabel telefonoLabel = new JLabel("Teléfono:");
-        telefonoLabel.setForeground(Color.WHITE);  // Cambiar el color del texto a blanco
+        telefonoLabel.setForeground(Color.WHITE);
         editFrame.add(telefonoLabel);
         editFrame.add(telefonoField);
 
         JLabel emailLabel = new JLabel("Correo electrónico:");
-        emailLabel.setForeground(Color.WHITE);  // Cambiar el color del texto a blanco
+        emailLabel.setForeground(Color.WHITE);
         editFrame.add(emailLabel);
         editFrame.add(emailField);
 
         JLabel passwordLabel = new JLabel("Contraseña:");
-        passwordLabel.setForeground(Color.WHITE);  // Cambiar el color del texto a blanco
+        passwordLabel.setForeground(Color.WHITE);
         editFrame.add(passwordLabel);
         editFrame.add(passwordField);
 
-        // Añadir el botón de guardar
+
         editFrame.add(saveButton);
 
-        // Mostrar la ventana de edición
         editFrame.setVisible(true);
     }
     private static JButton crearBoton(String texto) {
         JButton button = new JButton(texto);
         button.setBackground(new Color(52, 152, 219)); // Azul claro
         button.setForeground(Color.WHITE);
-        button.setFont(new Font("Roboto", Font.BOLD, 14));  // Cambiar la fuente
-        button.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));  // Añadir margen
+        button.setFont(new Font("Roboto", Font.BOLD, 14));
+        button.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         return button;
     }
 }
